@@ -11,8 +11,8 @@ namespace ColetaBlu.Repository // teste
         public async Task Add(PontoDTO ponto)
         {
             string sql = @"
-              INSERT INTO ponto_de_coleta (Name, Address, Number, Residue)
-                VALUE (@Name, @Address, @Number, @Residue)";
+              INSERT INTO ponto_de_coleta (Name, Address, Number, Residue, bairro_Id)
+                VALUE (@Name, @Address, @Number, @Residue, @bairro_Id)";
             await Execute(sql, ponto);
         }
 
@@ -42,6 +42,7 @@ namespace ColetaBlu.Repository // teste
                        Address=@Address, 
                        Number=@Number,
                        Residue=@Residue
+                       bairrro_Id = @bairro_Id
             WHERE ID= @Id
                        
              ";
