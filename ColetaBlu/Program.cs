@@ -10,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddTransient<IPontoRepository, PontoRepository>();
+builder.Services.AddTransient<IBairro, BairroRepository>();
 
 builder.Services.AddSwaggerGen();
 
