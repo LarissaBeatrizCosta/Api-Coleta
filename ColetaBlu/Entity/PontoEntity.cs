@@ -8,5 +8,6 @@
         public string? Number { get; set; }
         public string? Residue { get; set; }
         public string? bairro_Id { get; set; }
+        public string Role { get; set; }
     }
 }
