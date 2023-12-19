@@ -23,6 +23,7 @@ namespace ColetaBlu.Controllers
             return Ok(await _repository.Get());
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(PontoDTO ponto)
         {
@@ -53,7 +54,7 @@ namespace ColetaBlu.Controllers
         }
 
 
-        [Authorize]
+      
         [HttpPost]
         [Route("login")]
         public async Task<IActionResult> LogIn(PontoLoginDTO ponto)
