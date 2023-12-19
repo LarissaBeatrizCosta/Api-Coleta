@@ -10,6 +10,8 @@ namespace ColetaBlu.Contracts.Repository
         Task Delete(int id);
         Task<PontoEntity> GetById(int id);
         Task<IEnumerable<PontoEntity>> Get();
+
+        Task<PontoTokenDTO> LogIn(PontoLoginDTO ponto);
     }
 }
 

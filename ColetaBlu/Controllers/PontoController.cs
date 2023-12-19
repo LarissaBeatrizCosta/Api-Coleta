@@ -1,6 +1,7 @@
 ﻿using ColetaBlu.Contracts.Repository;
 using ColetaBlu.DTO;
 using ColetaBlu.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ColetaBlu.Controllers
@@ -17,7 +18,6 @@ namespace ColetaBlu.Controllers
         }
 
         [HttpGet]
-
         public async Task<IActionResult> Get()
         {
             return Ok(await _repository.Get());
@@ -52,5 +52,20 @@ namespace ColetaBlu.Controllers
             return Ok();
         }
 
+
+        [Authorize]
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> LogIn(PontoLoginDTO ponto)
+        {
+            try
+            {
+                return Ok(await _repository.LogIn(ponto));
+            }
+            catch (Exception ex)
+            {
+                return Unauthorized("Número inválido");
+            }
+        }
     }
 }

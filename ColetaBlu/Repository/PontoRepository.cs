@@ -34,6 +34,16 @@ namespace ColetaBlu.Repository // teste
             return await GetConnection().QueryFirstAsync<PontoEntity>(sql,new { id });
         }
 
+        public async Task<PontoTokenDTO> LogIn(PontoLoginDTO ponto)
+        {
+            string sql = "SELECT * FROM ponto_de_coleta  WHERE Name = @Name AND Number = @Number";
+            PontoEntity pontoLogin = await GetConnection().QueryFirstAsync<PontoEntity>(sql, ponto);
+            return new PontoTokenDTO
+            {
+                Token = Authentication.GenerateToken(pontoLogin)
+            };
+        }
+
         public async Task Update(PontoEntity ponto)
         {
             string sql = @"
