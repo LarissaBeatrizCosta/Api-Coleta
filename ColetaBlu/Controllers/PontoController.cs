@@ -17,7 +17,7 @@ namespace ColetaBlu.Controllers
             _repository = repository;
         }
 
-        [Authorize(Roles = "admin, coletor")]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -37,7 +37,7 @@ namespace ColetaBlu.Controllers
             return Ok(await _repository.GetById(id));
 
         }
-        [Authorize(Roles = "admin,coletor")]
+        [Authorize]
         [HttpPut]
 
         public async Task<IActionResult> Update(PontoEntity ponto)

@@ -40,7 +40,8 @@ namespace ColetaBlu.Repository // teste
             PontoEntity pontoLogin = await GetConnection().QueryFirstAsync<PontoEntity>(sql, ponto);
             return new PontoTokenDTO
             {
-                Token = Authentication.GenerateToken(pontoLogin)
+                Token = Authentication.GenerateToken(pontoLogin),
+                Coletor = pontoLogin
             };
         }
 
